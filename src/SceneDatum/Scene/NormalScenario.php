@@ -21,11 +21,11 @@ class NormalScenario extends Scenario
         return [];
     }
 
-    public static function execute() : array
+    public static function execute() : string
     {
         $normalDatum = new NormalDatum();
 
-        $template = "Name: {名称}}, Email: {邮件}, Mobile: {手机号}, Address: {地址}, Province: {省份}, City: {城市}.";
+        $template = "Name: {名称}, Email: {邮件}, Mobile: {手机号}, Address: {地址}, Province: {省份}, City: {城市}.";
 
         $datum = [
             'name'       => '杰哥',
@@ -40,9 +40,10 @@ class NormalScenario extends Scenario
 
         $template = $normalDatum->templateInject($template)->replace();
 
+        // Name: 杰哥, Email: 562591971@qq.com, Mobile: 13838389438 省略了。。。。
         var_dump($template);
 
-        return [];
+        return $template;
     }
 
 }
